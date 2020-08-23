@@ -19,9 +19,16 @@ protocol SearchViewModel: AnyObject {
 
 class SearchViewModelImpl: SearchViewModel {
 
+    // MARK: - Private Properties
+
+    private let disposeBag = DisposeBag()
+    private let searchService: SearchService
+
     // MARK: - Init
 
-    init() {
+    init(searchService: SearchService) {
+        self.searchService = searchService
+
         results = BehaviorSubject<[String]>(value: [])
     }
 
@@ -32,13 +39,29 @@ class SearchViewModelImpl: SearchViewModel {
     let results: BehaviorSubject<[String]>
 
     func search(query: String) {
-        let currentResults = (try? results.value()) ?? []
+        searchService.search(query: query)
+            .catchError({ error -> Observable<[SearchResult]> in
+                print(error)
 
-        results.onNext(currentResults + [query])
+                return .from([])
+            })
+            .map { $0.map(\.definition) }
+            .subscribe(self.results)
+            .disposed(by: disposeBag)
     }
 
     func didSelectResultAt(indexPath: IndexPath, of tableView: UITableView) {
         tableView.deselectRow(at: indexPath, animated: UIView.areAnimationsEnabled)
+    }
+
+}
+
+extension SearchViewModelImpl {
+
+    private struct SearchResults: Decodable {
+
+        let list: [SearchResult]
+
     }
 
 }

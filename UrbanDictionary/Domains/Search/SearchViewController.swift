@@ -47,14 +47,10 @@ class SearchViewController: UIViewController, UITableViewDelegate {
     }()
 
     private func configureSubviews() {
-        viewModel.search(query: "configureSubviews")
-
         view.addSubview(tableView)
     }
 
     private func configureLayout() {
-        viewModel.search(query: "configureLayout")
-
         NSLayoutConstraint.activate(tableView.layoutConstraints(toFill: view))
     }
 
@@ -67,12 +63,6 @@ class SearchViewController: UIViewController, UITableViewDelegate {
     // MARK: - Bindings
 
     private func configureBindings() {
-        viewModel.search(query: "configureBindings")
-
-        viewModel.results.subscribe { event in
-            print(event)
-        }.disposed(by: disposeBag)
-
         viewModel.results.bind(to: tableView.rx.items(cellIdentifier: Constant.cellIdentifier)) { row, result, cell in
             cell.textLabel?.text = result
         }.disposed(by: disposeBag)
