@@ -1,7 +1,7 @@
 import UIKit
 import RxSwift
 
-class SearchViewController: UIViewController, UITableViewDelegate {
+class SearchViewController: UIViewController, UITableViewDelegate, UISearchResultsUpdating {
 
     // MARK: - Private Types
 
@@ -14,12 +14,11 @@ class SearchViewController: UIViewController, UITableViewDelegate {
 
     private let viewModel: SearchViewModel
     private let disposeBag = DisposeBag()
+    private let searchController = UISearchController()
 
     // MARK: - Init
 
     init(viewModel: SearchViewModel) {
-        viewModel.search(query: "init")
-
         self.viewModel = viewModel
 
         super.init(nibName: nil, bundle: nil)
@@ -29,10 +28,32 @@ class SearchViewController: UIViewController, UITableViewDelegate {
         configureBindings()
         configureSubviews()
         configureLayout()
+        configureSearchController()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - Override UIViewController
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        searchController.isActive = true
+        searchController.searchBar.becomeFirstResponder()
+    }
+
+    // MARK: - UISearchController
+
+    private func configureSearchController() {
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.placeholder = "Search Urban Dictionary"
+
+        navigationItem.searchController = searchController
+
+        definesPresentationContext = true
     }
 
     // MARK: - Subviews
@@ -58,6 +79,16 @@ class SearchViewController: UIViewController, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.didSelectResultAt(indexPath: indexPath, of: tableView)
+    }
+
+    // MARK: - Protocol UISearchResultsUpdating
+
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let query = searchController.searchBar.text else {
+            return
+        }
+
+        viewModel.search(query: query)
     }
 
     // MARK: - Bindings

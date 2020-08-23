@@ -39,6 +39,11 @@ class SearchViewModelImpl: SearchViewModel {
     let results: BehaviorSubject<[String]>
 
     func search(query: String) {
+        guard !query.isEmpty else {
+            results.onNext([])
+            return
+        }
+
         searchService.search(query: query)
             .catchError({ error -> Observable<[SearchResult]> in
                 print(error)
@@ -46,22 +51,18 @@ class SearchViewModelImpl: SearchViewModel {
                 return .from([])
             })
             .map { $0.map(\.definition) }
-            .subscribe(self.results)
+            .subscribe({ [weak self] event in
+                guard case Event.next(let results) = event else {
+                    return
+                }
+
+                self?.results.onNext(results)
+            })
             .disposed(by: disposeBag)
     }
 
     func didSelectResultAt(indexPath: IndexPath, of tableView: UITableView) {
         tableView.deselectRow(at: indexPath, animated: UIView.areAnimationsEnabled)
-    }
-
-}
-
-extension SearchViewModelImpl {
-
-    private struct SearchResults: Decodable {
-
-        let list: [SearchResult]
-
     }
 
 }
