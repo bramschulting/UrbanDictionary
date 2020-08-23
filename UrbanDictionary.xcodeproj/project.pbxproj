@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,9 @@
 		CE940D9B24F2B3860040BE2A /* SearchBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE940D9A24F2B3860040BE2A /* SearchBuilder.swift */; };
 		CE940D9D24F2B3B20040BE2A /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE940D9C24F2B3B20040BE2A /* SearchCoordinator.swift */; };
 		CE940D9F24F2B6F50040BE2A /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE940D9E24F2B6F50040BE2A /* SearchViewModel.swift */; };
+		CE940DA924F2BD870040BE2A /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CE940DA824F2BD870040BE2A /* RxSwift */; };
+		CE940DAB24F2BD870040BE2A /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = CE940DAA24F2BD870040BE2A /* RxCocoa */; };
+		CE940DAD24F2C5350040BE2A /* UIView+LayoutConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE940DAC24F2C5350040BE2A /* UIView+LayoutConstraints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,7 @@
 		CE940D9A24F2B3860040BE2A /* SearchBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBuilder.swift; sourceTree = "<group>"; };
 		CE940D9C24F2B3B20040BE2A /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
 		CE940D9E24F2B6F50040BE2A /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		CE940DAC24F2C5350040BE2A /* UIView+LayoutConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+LayoutConstraints.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE940DAB24F2BD870040BE2A /* RxCocoa in Frameworks */,
+				CE940DA924F2BD870040BE2A /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +148,7 @@
 			children = (
 				CE940DA024F2BA400040BE2A /* Builder */,
 				CE940DA124F2BA510040BE2A /* Coordinator */,
+				CE940DAC24F2C5350040BE2A /* UIView+LayoutConstraints.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -178,6 +185,10 @@
 			dependencies = (
 			);
 			name = UrbanDictionary;
+			packageProductDependencies = (
+				CE940DA824F2BD870040BE2A /* RxSwift */,
+				CE940DAA24F2BD870040BE2A /* RxCocoa */,
+			);
 			productName = UrbanDictionary;
 			productReference = CE940D6A24F2AF640040BE2A /* UrbanDictionary.app */;
 			productType = "com.apple.product-type.application";
@@ -228,6 +239,9 @@
 				Base,
 			);
 			mainGroup = CE940D6124F2AF630040BE2A;
+			packageReferences = (
+				CE940DA724F2BD870040BE2A /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = CE940D6B24F2AF640040BE2A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -268,6 +282,7 @@
 				CE940D9F24F2B6F50040BE2A /* SearchViewModel.swift in Sources */,
 				CE940D7024F2AF640040BE2A /* SceneDelegate.swift in Sources */,
 				CE940D9224F2B13C0040BE2A /* SearchViewController.swift in Sources */,
+				CE940DAD24F2C5350040BE2A /* UIView+LayoutConstraints.swift in Sources */,
 				CE940D9924F2B3690040BE2A /* Builder.swift in Sources */,
 				CE940D9B24F2B3860040BE2A /* SearchBuilder.swift in Sources */,
 				CE940D9D24F2B3B20040BE2A /* SearchCoordinator.swift in Sources */,
@@ -533,6 +548,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CE940DA724F2BD870040BE2A /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CE940DA824F2BD870040BE2A /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE940DA724F2BD870040BE2A /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		CE940DAA24F2BD870040BE2A /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE940DA724F2BD870040BE2A /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CE940D6224F2AF630040BE2A /* Project object */;
 }
