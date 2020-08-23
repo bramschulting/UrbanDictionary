@@ -9,11 +9,16 @@
 /* Begin PBXBuildFile section */
 		CE940D6E24F2AF640040BE2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE940D6D24F2AF640040BE2A /* AppDelegate.swift */; };
 		CE940D7024F2AF640040BE2A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE940D6F24F2AF640040BE2A /* SceneDelegate.swift */; };
-		CE940D7224F2AF640040BE2A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE940D7124F2AF640040BE2A /* ContentView.swift */; };
 		CE940D7424F2AF640040BE2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE940D7324F2AF640040BE2A /* Assets.xcassets */; };
 		CE940D7724F2AF640040BE2A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE940D7624F2AF640040BE2A /* Preview Assets.xcassets */; };
 		CE940D7A24F2AF640040BE2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE940D7824F2AF640040BE2A /* LaunchScreen.storyboard */; };
 		CE940D8524F2AF650040BE2A /* UrbanDictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE940D8424F2AF650040BE2A /* UrbanDictionaryTests.swift */; };
+		CE940D9224F2B13C0040BE2A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE940D9124F2B13C0040BE2A /* SearchViewController.swift */; };
+		CE940D9724F2B3580040BE2A /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE940D9624F2B3580040BE2A /* Coordinator.swift */; };
+		CE940D9924F2B3690040BE2A /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE940D9824F2B3690040BE2A /* Builder.swift */; };
+		CE940D9B24F2B3860040BE2A /* SearchBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE940D9A24F2B3860040BE2A /* SearchBuilder.swift */; };
+		CE940D9D24F2B3B20040BE2A /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE940D9C24F2B3B20040BE2A /* SearchCoordinator.swift */; };
+		CE940D9F24F2B6F50040BE2A /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE940D9E24F2B6F50040BE2A /* SearchViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +35,6 @@
 		CE940D6A24F2AF640040BE2A /* UrbanDictionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UrbanDictionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE940D6D24F2AF640040BE2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE940D6F24F2AF640040BE2A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CE940D7124F2AF640040BE2A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CE940D7324F2AF640040BE2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE940D7624F2AF640040BE2A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CE940D7924F2AF640040BE2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +42,12 @@
 		CE940D8024F2AF650040BE2A /* UrbanDictionaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UrbanDictionaryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE940D8424F2AF650040BE2A /* UrbanDictionaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrbanDictionaryTests.swift; sourceTree = "<group>"; };
 		CE940D8624F2AF650040BE2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE940D9124F2B13C0040BE2A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		CE940D9624F2B3580040BE2A /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		CE940D9824F2B3690040BE2A /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
+		CE940D9A24F2B3860040BE2A /* SearchBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBuilder.swift; sourceTree = "<group>"; };
+		CE940D9C24F2B3B20040BE2A /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
+		CE940D9E24F2B6F50040BE2A /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,9 +89,10 @@
 		CE940D6C24F2AF640040BE2A /* UrbanDictionary */ = {
 			isa = PBXGroup;
 			children = (
+				CE940D8F24F2B1200040BE2A /* Domains */,
+				CE940D9524F2B3480040BE2A /* Shared */,
 				CE940D6D24F2AF640040BE2A /* AppDelegate.swift */,
 				CE940D6F24F2AF640040BE2A /* SceneDelegate.swift */,
-				CE940D7124F2AF640040BE2A /* ContentView.swift */,
 				CE940D7324F2AF640040BE2A /* Assets.xcassets */,
 				CE940D7824F2AF640040BE2A /* LaunchScreen.storyboard */,
 				CE940D7B24F2AF640040BE2A /* Info.plist */,
@@ -105,6 +116,50 @@
 				CE940D8624F2AF650040BE2A /* Info.plist */,
 			);
 			path = UrbanDictionaryTests;
+			sourceTree = "<group>";
+		};
+		CE940D8F24F2B1200040BE2A /* Domains */ = {
+			isa = PBXGroup;
+			children = (
+				CE940D9024F2B12B0040BE2A /* Search */,
+			);
+			path = Domains;
+			sourceTree = "<group>";
+		};
+		CE940D9024F2B12B0040BE2A /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				CE940D9A24F2B3860040BE2A /* SearchBuilder.swift */,
+				CE940D9C24F2B3B20040BE2A /* SearchCoordinator.swift */,
+				CE940D9124F2B13C0040BE2A /* SearchViewController.swift */,
+				CE940D9E24F2B6F50040BE2A /* SearchViewModel.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		CE940D9524F2B3480040BE2A /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				CE940DA024F2BA400040BE2A /* Builder */,
+				CE940DA124F2BA510040BE2A /* Coordinator */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		CE940DA024F2BA400040BE2A /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				CE940D9824F2B3690040BE2A /* Builder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		CE940DA124F2BA510040BE2A /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				CE940D9624F2B3580040BE2A /* Coordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,9 +263,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE940D9724F2B3580040BE2A /* Coordinator.swift in Sources */,
 				CE940D6E24F2AF640040BE2A /* AppDelegate.swift in Sources */,
+				CE940D9F24F2B6F50040BE2A /* SearchViewModel.swift in Sources */,
 				CE940D7024F2AF640040BE2A /* SceneDelegate.swift in Sources */,
-				CE940D7224F2AF640040BE2A /* ContentView.swift in Sources */,
+				CE940D9224F2B13C0040BE2A /* SearchViewController.swift in Sources */,
+				CE940D9924F2B3690040BE2A /* Builder.swift in Sources */,
+				CE940D9B24F2B3860040BE2A /* SearchBuilder.swift in Sources */,
+				CE940D9D24F2B3B20040BE2A /* SearchCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,7 +434,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.bramschulting.UrbanDictionary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -394,7 +454,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.bramschulting.UrbanDictionary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
