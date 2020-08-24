@@ -1,7 +1,7 @@
 import UIKit
 import RxSwift
 
-class SearchViewController: UIViewController, UITableViewDelegate {
+class SearchViewController: UIViewController {
 
     // MARK: - Private Types
 
@@ -73,12 +73,6 @@ class SearchViewController: UIViewController, UITableViewDelegate {
         NSLayoutConstraint.activate(tableView.layoutConstraints(toFill: view))
     }
 
-    // MARK: - Protocol UITableViewDelegate
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.didSelectResultAt(indexPath: indexPath, of: tableView)
-    }
-
     // MARK: - Bindings
 
     private func configureBindings() {
@@ -91,6 +85,16 @@ class SearchViewController: UIViewController, UITableViewDelegate {
         }.disposed(by: disposeBag)
 
         searchController.searchBar.rx.text.bind(to: viewModel.text).disposed(by: disposeBag)
+    }
+
+}
+
+// MARK: - Protocol UITableViewDelegate
+
+extension SearchViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.didSelectResultAt(indexPath: indexPath, of: tableView)
     }
 
 }
