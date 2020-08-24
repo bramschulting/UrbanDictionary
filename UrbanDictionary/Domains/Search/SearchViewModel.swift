@@ -10,7 +10,7 @@ protocol SearchViewModel: AnyObject {
     var query: BehaviorSubject<String?> { get }
 
     /// Current results
-    var results: BehaviorSubject<[String]> { get }
+    var results: BehaviorSubject<[SearchResult]> { get }
 
     /// To be called when the user selects one of the search results
     func didSelectResultAt(indexPath: IndexPath, of: UITableView)
@@ -40,7 +40,6 @@ class SearchViewModelImpl: SearchViewModel {
     private func configureBindings() {
         query
             .flatMap(createSearchObservable(query:))
-            .map { $0.map(\.definition) }
             .bind(to: results)
             .disposed(by: disposeBag)
     }
@@ -49,7 +48,7 @@ class SearchViewModelImpl: SearchViewModel {
 
     weak var coordinator: SearchCoordinator?
 
-    let results: BehaviorSubject<[String]>
+    let results: BehaviorSubject<[SearchResult]>
 
     let query: BehaviorSubject<String?>
 

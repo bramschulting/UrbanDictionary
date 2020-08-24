@@ -61,7 +61,6 @@ class SearchViewController: UIViewController, UITableViewDelegate {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.delegate = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constant.cellIdentifier)
 
         return tableView
     }()
@@ -83,8 +82,12 @@ class SearchViewController: UIViewController, UITableViewDelegate {
     // MARK: - Bindings
 
     private func configureBindings() {
-        viewModel.results.bind(to: tableView.rx.items(cellIdentifier: Constant.cellIdentifier)) { row, result, cell in
-            cell.textLabel?.text = result
+        viewModel.results.bind(to: tableView.rx.items) { tableView, row, result in
+            let cell = UITableViewCell(style: .subtitle, reuseIdentifier: Constant.cellIdentifier)
+            cell.textLabel?.text = result.term
+            cell.detailTextLabel?.text = result.preview
+
+            return cell
         }.disposed(by: disposeBag)
 
         searchController.searchBar.rx.text.bind(to: viewModel.query).disposed(by: disposeBag)

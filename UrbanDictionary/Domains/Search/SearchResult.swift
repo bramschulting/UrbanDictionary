@@ -1,5 +1,6 @@
 struct SearchResult: Decodable {
 
-    let definition: String
+    let term: String
+    let preview: String
 
 }

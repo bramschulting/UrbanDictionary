@@ -28,14 +28,14 @@ class SearchServiceImpl: SearchService {
     func search(query: String) -> Observable<[SearchResult]> {
         return Observable.create { (observer) -> Disposable in
             guard let encodedQuery = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed),
-                let url = URL(string: "https://api.urbandictionary.com/v0/define?term=\(encodedQuery)") else {
+                let url = URL(string: "https://api.urbandictionary.com/v0/autocomplete-extra?term=\(encodedQuery)") else {
                     observer.onError(SearchError.invalidArguments)
 
                     return Disposables.create()
             }
 
             return Disposables.create([
-                self.urlSession.rx.decodable(SearchResponse.self, url: url).map { $0.list }.subscribe(observer)
+                self.urlSession.rx.decodable(SearchResponse.self, url: url).map { $0.results }.subscribe(observer)
             ])
         }
     }
@@ -46,7 +46,7 @@ extension SearchServiceImpl {
 
     private struct SearchResponse: Decodable {
 
-        let list: [SearchResult]
+        let results: [SearchResult]
 
     }
 
