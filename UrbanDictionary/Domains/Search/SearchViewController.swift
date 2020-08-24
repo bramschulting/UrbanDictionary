@@ -90,7 +90,7 @@ class SearchViewController: UIViewController, UITableViewDelegate {
             return cell
         }.disposed(by: disposeBag)
 
-        searchController.searchBar.rx.text.bind(to: viewModel.query).disposed(by: disposeBag)
+        searchController.searchBar.rx.text.bind(to: viewModel.text).disposed(by: disposeBag)
     }
 
 }

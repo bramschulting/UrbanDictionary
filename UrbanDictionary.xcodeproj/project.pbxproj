@@ -22,9 +22,8 @@
 		CE940DA924F2BD870040BE2A /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CE940DA824F2BD870040BE2A /* RxSwift */; };
 		CE940DAB24F2BD870040BE2A /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = CE940DAA24F2BD870040BE2A /* RxCocoa */; };
 		CE940DAD24F2C5350040BE2A /* UIView+LayoutConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE940DAC24F2C5350040BE2A /* UIView+LayoutConstraints.swift */; };
-		CE940DAF24F2CC790040BE2A /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE940DAE24F2CC790040BE2A /* SearchResult.swift */; };
 		CE940DB124F2EA9B0040BE2A /* ReactiveURLSession+decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE940DB024F2EA9B0040BE2A /* ReactiveURLSession+decodable.swift */; };
-		CE940DB324F2EB410040BE2A /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE940DB224F2EB410040BE2A /* SearchService.swift */; };
+		CE940DB324F2EB410040BE2A /* AutocompleteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE940DB224F2EB410040BE2A /* AutocompleteService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,9 +54,8 @@
 		CE940D9C24F2B3B20040BE2A /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
 		CE940D9E24F2B6F50040BE2A /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		CE940DAC24F2C5350040BE2A /* UIView+LayoutConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+LayoutConstraints.swift"; sourceTree = "<group>"; };
-		CE940DAE24F2CC790040BE2A /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		CE940DB024F2EA9B0040BE2A /* ReactiveURLSession+decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReactiveURLSession+decodable.swift"; sourceTree = "<group>"; };
-		CE940DB224F2EB410040BE2A /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		CE940DB224F2EB410040BE2A /* AutocompleteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutocompleteService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,12 +139,11 @@
 		CE940D9024F2B12B0040BE2A /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				CE940DB224F2EB410040BE2A /* AutocompleteService.swift */,
 				CE940D9A24F2B3860040BE2A /* SearchBuilder.swift */,
 				CE940D9C24F2B3B20040BE2A /* SearchCoordinator.swift */,
-				CE940DAE24F2CC790040BE2A /* SearchResult.swift */,
 				CE940D9124F2B13C0040BE2A /* SearchViewController.swift */,
 				CE940D9E24F2B6F50040BE2A /* SearchViewModel.swift */,
-				CE940DB224F2EB410040BE2A /* SearchService.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -288,14 +285,13 @@
 			files = (
 				CE940D9724F2B3580040BE2A /* Coordinator.swift in Sources */,
 				CE940D6E24F2AF640040BE2A /* AppDelegate.swift in Sources */,
-				CE940DAF24F2CC790040BE2A /* SearchResult.swift in Sources */,
 				CE940D9F24F2B6F50040BE2A /* SearchViewModel.swift in Sources */,
 				CE940D7024F2AF640040BE2A /* SceneDelegate.swift in Sources */,
 				CE940DB124F2EA9B0040BE2A /* ReactiveURLSession+decodable.swift in Sources */,
 				CE940D9224F2B13C0040BE2A /* SearchViewController.swift in Sources */,
 				CE940DAD24F2C5350040BE2A /* UIView+LayoutConstraints.swift in Sources */,
 				CE940D9924F2B3690040BE2A /* Builder.swift in Sources */,
-				CE940DB324F2EB410040BE2A /* SearchService.swift in Sources */,
+				CE940DB324F2EB410040BE2A /* AutocompleteService.swift in Sources */,
 				CE940D9B24F2B3860040BE2A /* SearchBuilder.swift in Sources */,
 				CE940D9D24F2B3B20040BE2A /* SearchCoordinator.swift in Sources */,
 			);

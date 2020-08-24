@@ -6,11 +6,11 @@ protocol SearchViewModel: AnyObject {
 
     var coordinator: SearchCoordinator? { get set }
 
-    /// Current query. Setting the value of this stream will fetch and update the results.
-    var query: BehaviorSubject<String?> { get }
+    /// Current text. Setting the value of this stream will fetch and update the autocompletion results.
+    var text: BehaviorSubject<String?> { get }
 
     /// Current results
-    var results: BehaviorSubject<[SearchResult]> { get }
+    var results: BehaviorSubject<[AutocompleteResult]> { get }
 
     /// To be called when the user selects one of the search results
     func didSelectResultAt(indexPath: IndexPath, of: UITableView)
@@ -22,14 +22,14 @@ class SearchViewModelImpl: SearchViewModel {
     // MARK: - Private Properties
 
     private let disposeBag = DisposeBag()
-    private let searchService: SearchService
+    private let autocompleteService: AutocompleteService
 
     // MARK: - Init
 
-    init(searchService: SearchService) {
-        self.searchService = searchService
+    init(autocompleteService: AutocompleteService) {
+        self.autocompleteService = autocompleteService
 
-        query = .init(value: nil)
+        text = .init(value: nil)
         results = .init(value: [])
 
         configureBindings()
@@ -38,8 +38,8 @@ class SearchViewModelImpl: SearchViewModel {
     // MARK: - Bindings
 
     private func configureBindings() {
-        query
-            .flatMap(createSearchObservable(query:))
+        text
+            .flatMap(createAutocompleteObservable(text:))
             .bind(to: results)
             .disposed(by: disposeBag)
     }
@@ -48,9 +48,9 @@ class SearchViewModelImpl: SearchViewModel {
 
     weak var coordinator: SearchCoordinator?
 
-    let results: BehaviorSubject<[SearchResult]>
+    let results: BehaviorSubject<[AutocompleteResult]>
 
-    let query: BehaviorSubject<String?>
+    let text: BehaviorSubject<String?>
 
     func didSelectResultAt(indexPath: IndexPath, of tableView: UITableView) {
         tableView.deselectRow(at: indexPath, animated: UIView.areAnimationsEnabled)
@@ -58,16 +58,16 @@ class SearchViewModelImpl: SearchViewModel {
 
     // MARK: - Private Methods
 
-    /// Creates observable search results with error handling
-    private func createSearchObservable(query: String?) -> Observable<[SearchResult]> {
-        // In case of an empty query, just return an empty list
-        guard let query = query, !query.isEmpty else {
+    /// Creates observable autocompletion results with error handling
+    private func createAutocompleteObservable(text: String?) -> Observable<[AutocompleteResult]> {
+        // In case of a empty text, just return an empty list
+        guard let text = text, !text.isEmpty else {
             return .of([])
         }
 
-        return searchService
-            .search(query: query)
-            .catchError({ error -> Observable<[SearchResult]> in
+        return autocompleteService
+            .autocomplete(text: text)
+            .catchError({ error -> Observable<[AutocompleteResult]> in
                 print(error)
 
                 return .just([])
