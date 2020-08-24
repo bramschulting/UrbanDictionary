@@ -44,7 +44,6 @@ class DefinitionsViewModelImpl: DefinitionsViewModel {
     private func fetchDefinitions() {
         definitionsService
             .define(term: term)
-            .debug()
             .bind(to: definitions)
             .disposed(by: disposeBag)
     }

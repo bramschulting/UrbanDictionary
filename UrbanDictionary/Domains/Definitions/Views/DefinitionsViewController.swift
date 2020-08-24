@@ -62,12 +62,11 @@ class DefinitionsViewController: UIViewController {
 
     private func configureBindings() {
         viewModel.definitions.bind(to: tableView.rx.items) { tableView, row, definition in
-            let cell = UITableViewCell(style: .subtitle, reuseIdentifier: Constant.cellIdentifier)
-            cell.textLabel?.text = definition.word
-            cell.detailTextLabel?.text = definition.definition
-            cell.detailTextLabel?.numberOfLines = 0
+            let definitionViewModel = DefinitionViewModelImpl(definition: definition)
+            let definitionCell = DefinitionCell(viewModel: definitionViewModel,
+                                                reuseIdentifier: Constant.cellIdentifier)
 
-            return cell
+            return definitionCell
         }.disposed(by: disposeBag)
     }
 
