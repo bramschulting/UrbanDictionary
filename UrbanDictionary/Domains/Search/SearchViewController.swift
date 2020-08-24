@@ -1,7 +1,7 @@
 import UIKit
 import RxSwift
 
-class SearchViewController: UIViewController, UITableViewDelegate, UISearchResultsUpdating {
+class SearchViewController: UIViewController, UITableViewDelegate {
 
     // MARK: - Private Types
 
@@ -48,7 +48,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UISearchResul
 
     private func configureSearchController() {
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchResultsUpdater = self
         searchController.searchBar.placeholder = "Search Urban Dictionary"
 
         navigationItem.searchController = searchController
@@ -81,22 +80,14 @@ class SearchViewController: UIViewController, UITableViewDelegate, UISearchResul
         viewModel.didSelectResultAt(indexPath: indexPath, of: tableView)
     }
 
-    // MARK: - Protocol UISearchResultsUpdating
-
-    func updateSearchResults(for searchController: UISearchController) {
-        guard let query = searchController.searchBar.text else {
-            return
-        }
-
-        viewModel.search(query: query)
-    }
-
     // MARK: - Bindings
 
     private func configureBindings() {
         viewModel.results.bind(to: tableView.rx.items(cellIdentifier: Constant.cellIdentifier)) { row, result, cell in
             cell.textLabel?.text = result
         }.disposed(by: disposeBag)
+
+        searchController.searchBar.rx.text.bind(to: viewModel.query).disposed(by: disposeBag)
     }
 
 }

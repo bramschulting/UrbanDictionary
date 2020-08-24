@@ -6,11 +6,11 @@ protocol SearchViewModel: AnyObject {
 
     var coordinator: SearchCoordinator? { get set }
 
+    /// Current query. Setting the value of this stream will fetch and update the results.
+    var query: BehaviorSubject<String?> { get }
+
     /// Current results
     var results: BehaviorSubject<[String]> { get }
-
-    /// Perform a new search request with the provided query
-    func search(query: String)
 
     /// To be called when the user selects one of the search results
     func didSelectResultAt(indexPath: IndexPath, of: UITableView)
@@ -29,7 +29,20 @@ class SearchViewModelImpl: SearchViewModel {
     init(searchService: SearchService) {
         self.searchService = searchService
 
-        results = BehaviorSubject<[String]>(value: [])
+        query = .init(value: nil)
+        results = .init(value: [])
+
+        configureBindings()
+    }
+
+    // MARK: - Bindings
+
+    private func configureBindings() {
+        query
+            .flatMap(createSearchObservable(query:))
+            .map { $0.map(\.definition) }
+            .bind(to: results)
+            .disposed(by: disposeBag)
     }
 
     // MARK: - Protocol SearchViewModel
@@ -38,31 +51,28 @@ class SearchViewModelImpl: SearchViewModel {
 
     let results: BehaviorSubject<[String]>
 
-    func search(query: String) {
-        guard !query.isEmpty else {
-            results.onNext([])
-            return
-        }
-
-        searchService.search(query: query)
-            .catchError({ error -> Observable<[SearchResult]> in
-                print(error)
-
-                return .from([])
-            })
-            .map { $0.map(\.definition) }
-            .subscribe({ [weak self] event in
-                guard case Event.next(let results) = event else {
-                    return
-                }
-
-                self?.results.onNext(results)
-            })
-            .disposed(by: disposeBag)
-    }
+    let query: BehaviorSubject<String?>
 
     func didSelectResultAt(indexPath: IndexPath, of tableView: UITableView) {
         tableView.deselectRow(at: indexPath, animated: UIView.areAnimationsEnabled)
+    }
+
+    // MARK: - Private Methods
+
+    /// Creates observable search results with error handling
+    private func createSearchObservable(query: String?) -> Observable<[SearchResult]> {
+        // In case of an empty query, just return an empty list
+        guard let query = query, !query.isEmpty else {
+            return .of([])
+        }
+
+        return searchService
+            .search(query: query)
+            .catchError({ error -> Observable<[SearchResult]> in
+                print(error)
+
+                return .just([])
+            })
     }
 
 }
