@@ -8,7 +8,7 @@ protocol DefinitionsService {
 
 }
 
-struct Definition: Decodable {
+struct Definition: Decodable, Equatable {
 
     /// The exact word of this definition
     let word: String

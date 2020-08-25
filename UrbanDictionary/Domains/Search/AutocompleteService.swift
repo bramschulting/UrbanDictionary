@@ -7,7 +7,7 @@ protocol AutocompleteService {
 
 }
 
-struct AutocompleteResult: Decodable {
+struct AutocompleteResult: Decodable, Equatable {
 
     /// Term for which the Urban Dictionary has at least one definition
     let term: String

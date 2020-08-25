@@ -13,7 +13,7 @@ protocol SearchViewModel: AnyObject {
     var results: BehaviorSubject<[AutocompleteResult]> { get }
 
     /// To be called when the user selects one of the search results
-    func didSelectResultAt(indexPath: IndexPath, of tableView: UITableView)
+    func didSelectResultAt(indexPath: IndexPath, of tableView: UITableView?)
 
 }
 
@@ -52,8 +52,8 @@ class SearchViewModelImpl: SearchViewModel {
 
     let text: BehaviorSubject<String?>
 
-    func didSelectResultAt(indexPath: IndexPath, of tableView: UITableView) {
-        tableView.deselectRow(at: indexPath, animated: UIView.areAnimationsEnabled)
+    func didSelectResultAt(indexPath: IndexPath, of tableView: UITableView?) {
+        tableView?.deselectRow(at: indexPath, animated: UIView.areAnimationsEnabled)
 
         let results = (try? self.results.value()) ?? []
         guard let result = results[safe: indexPath.row] else {
