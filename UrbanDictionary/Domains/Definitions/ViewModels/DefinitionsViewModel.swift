@@ -1,7 +1,9 @@
 import UIKit
 import RxSwift
 
-protocol DefinitionsViewModel {
+protocol DefinitionsViewModel: DefinableTermSelectionDelegate {
+
+    var coordinator: DefinitionsCoordinator? { get set }
 
     var title: String { get }
 
@@ -31,12 +33,18 @@ class DefinitionsViewModelImpl: DefinitionsViewModel {
 
     // MARK: - Protocol DefinitionsViewModel
 
+    var coordinator: DefinitionsCoordinator?
+
     var title: String { term }
 
     let definitions: BehaviorSubject<[Definition]>
 
     func viewDidLoad() {
         fetchDefinitions()
+    }
+
+    func didSelect(term: String) {
+        coordinator?.showDefinitions(term: term)
     }
 
     // MARK: - Private Methods

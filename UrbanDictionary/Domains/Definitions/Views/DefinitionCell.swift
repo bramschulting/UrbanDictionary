@@ -55,6 +55,8 @@ class DefinitionCell: UITableViewCell {
         definitionTextView.translatesAutoresizingMaskIntoConstraints = false
         definitionTextView.isScrollEnabled = false
         definitionTextView.isEditable = false
+        definitionTextView.isSelectable = true
+        definitionTextView.delegate = self
         definitionTextView.textContainer.lineFragmentPadding = 0
         definitionTextView.textContainerInset = .zero
 
@@ -73,6 +75,8 @@ class DefinitionCell: UITableViewCell {
         exampleTextView.translatesAutoresizingMaskIntoConstraints = false
         exampleTextView.isScrollEnabled = false
         exampleTextView.isEditable = false
+        exampleTextView.isSelectable = true
+        exampleTextView.delegate = self
         exampleTextView.textContainer.lineFragmentPadding = 0
         exampleTextView.textContainerInset = .zero
 
@@ -105,6 +109,21 @@ class DefinitionCell: UITableViewCell {
 
     private func configureLayout() {
         NSLayoutConstraint.activate(stackView.layoutConstraints(toFill: self, insetBy: Constant.cellInsets))
+    }
+
+}
+
+// MARK: - Protocol UITextViewDelegate
+
+extension DefinitionCell: UITextViewDelegate {
+
+    func textView(_ textView: UITextView,
+                  shouldInteractWith URL: URL,
+                  in characterRange: NSRange,
+                  interaction: UITextItemInteraction) -> Bool {
+        viewModel.didSelect(url: URL)
+
+        return false
     }
 
 }

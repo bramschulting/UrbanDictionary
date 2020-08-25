@@ -3,6 +3,7 @@ import RxSwift
 
 protocol DefinitionsService {
 
+    /// Define a term
     func define(term: String) -> Observable<[Definition]>
 
 }

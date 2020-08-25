@@ -39,7 +39,7 @@ class SearchViewModelImpl: SearchViewModel {
 
     private func configureBindings() {
         text
-            .flatMap(createAutocompleteObservable(text:))
+            .flatMapLatest(createAutocompleteObservable(text:))
             .bind(to: results)
             .disposed(by: disposeBag)
     }

@@ -20,6 +20,7 @@ class DefinitionsBuilder: Builder {
                                                                        definitionsService: definitionsService)
         let viewController: DefinitionsViewController = DefinitionsViewController(viewModel: viewModel)
         let coordinator: DefinitionsCoordinator = DefinitionsCoordinatorImpl(viewController: viewController)
+        viewModel.coordinator = coordinator
 
         return coordinator
     }

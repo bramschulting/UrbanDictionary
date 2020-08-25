@@ -61,8 +61,9 @@ class DefinitionsViewController: UIViewController {
     // MARK: - Bindings
 
     private func configureBindings() {
-        viewModel.definitions.bind(to: tableView.rx.items) { tableView, row, definition in
-            let definitionViewModel = DefinitionViewModelImpl(definition: definition)
+        viewModel.definitions.bind(to: tableView.rx.items) { [weak self] tableView, row, definition in
+            let definitionViewModel = DefinitionViewModelImpl(definition: definition,
+                                                              definableTermSelectionDelegate: self?.viewModel)
             let definitionCell = DefinitionCell(viewModel: definitionViewModel,
                                                 reuseIdentifier: Constant.cellIdentifier)
 
