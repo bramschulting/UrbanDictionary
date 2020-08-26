@@ -13,7 +13,7 @@ I made this small project because I wanted to play around with:
 - RxSwift
   - Verdict: very nice! Takes some getting used to, but that’s to be expected.
 - UI Testing
-  - Verdict: very nice! I ended up using [Swifter](https://github.com/httpswift/swifter) to create a mock server, because I don't like the idea of testing agains a live server.
+  - Verdict: very nice! I ended up using [Swifter](https://github.com/httpswift/swifter) to create a mock server, because I don't like the idea of testing against a live server.
 
 Since this is just a small test project, I will probably not accept any pull requests 🤷‍♀️
 
