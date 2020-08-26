@@ -41,11 +41,10 @@ class DefinitionsServiceImpl: DefinitionsService {
 
     func define(term: String) -> Observable<[Definition]> {
         return Observable.create { (observer) -> Disposable in
-            guard let encodedTerm = term.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed),
-                let url = URL(string: "https://api.urbandictionary.com/v0/define?term=\(encodedTerm)") else {
-                    observer.onError(AutocompleteError.invalidArguments)
+            guard let url = UrbanDictionaryHelper.definitionsURL(term: term) else {
+                observer.onError(AutocompleteError.invalidArguments)
 
-                    return Disposables.create()
+                return Disposables.create()
             }
 
             return Disposables.create([

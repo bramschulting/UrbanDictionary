@@ -37,11 +37,10 @@ class AutocompleteServiceImpl: AutocompleteService {
 
     func autocomplete(text: String) -> Observable<[AutocompleteResult]> {
         return Observable.create { (observer) -> Disposable in
-            guard let encodedTerm = text.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed),
-                let url = URL(string: "https://api.urbandictionary.com/v0/autocomplete-extra?term=\(encodedTerm)") else {
-                    observer.onError(AutocompleteError.invalidArguments)
+            guard let url = UrbanDictionaryHelper.autocompleteURL(term: text) else {
+                observer.onError(AutocompleteError.invalidArguments)
 
-                    return Disposables.create()
+                return Disposables.create()
             }
 
             return Disposables.create([

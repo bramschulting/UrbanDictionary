@@ -28,6 +28,10 @@
 		CEB8BD9724F5625E003F160E /* DefinitionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB8BD9624F5625E003F160E /* DefinitionViewModelTests.swift */; };
 		CEB8BD9924F56F60003F160E /* DefinitionsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB8BD9824F56F60003F160E /* DefinitionsViewModelTests.swift */; };
 		CEB8BD9C24F575A8003F160E /* SearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB8BD9B24F575A8003F160E /* SearchViewModelTests.swift */; };
+		CEB8BDB224F58E4A003F160E /* UrbanDictionaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB8BDB124F58E4A003F160E /* UrbanDictionaryUITests.swift */; };
+		CEECEAE624F5B4C9003080BE /* Swifter in Frameworks */ = {isa = PBXBuildFile; productRef = CEECEAE524F5B4C9003080BE /* Swifter */; };
+		CEF8D8D424F6603200A34F94 /* EchoServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF8D8D324F6603200A34F94 /* EchoServer.swift */; };
+		CEF8D8D624F687EF00A34F94 /* UrbanDictionaryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF8D8D524F687EF00A34F94 /* UrbanDictionaryHelper.swift */; };
 		CEFE0F3124F42CCA0073A427 /* DefinitionsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFE0F3024F42CCA0073A427 /* DefinitionsBuilder.swift */; };
 		CEFE0F3324F42CD40073A427 /* DefinitionsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFE0F3224F42CD40073A427 /* DefinitionsCoordinator.swift */; };
 		CEFE0F3524F42CE10073A427 /* DefinitionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFE0F3424F42CE10073A427 /* DefinitionsViewController.swift */; };
@@ -39,6 +43,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		CE940D8124F2AF650040BE2A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE940D6224F2AF630040BE2A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE940D6924F2AF640040BE2A;
+			remoteInfo = UrbanDictionary;
+		};
+		CEB8BDB424F58E4A003F160E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CE940D6224F2AF630040BE2A /* Project object */;
 			proxyType = 1;
@@ -71,6 +82,11 @@
 		CEB8BD9624F5625E003F160E /* DefinitionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionViewModelTests.swift; sourceTree = "<group>"; };
 		CEB8BD9824F56F60003F160E /* DefinitionsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionsViewModelTests.swift; sourceTree = "<group>"; };
 		CEB8BD9B24F575A8003F160E /* SearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTests.swift; sourceTree = "<group>"; };
+		CEB8BDAF24F58E4A003F160E /* UrbanDictionaryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UrbanDictionaryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEB8BDB124F58E4A003F160E /* UrbanDictionaryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrbanDictionaryUITests.swift; sourceTree = "<group>"; };
+		CEB8BDB324F58E4A003F160E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEF8D8D324F6603200A34F94 /* EchoServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EchoServer.swift; sourceTree = "<group>"; };
+		CEF8D8D524F687EF00A34F94 /* UrbanDictionaryHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrbanDictionaryHelper.swift; sourceTree = "<group>"; };
 		CEFE0F3024F42CCA0073A427 /* DefinitionsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionsBuilder.swift; sourceTree = "<group>"; };
 		CEFE0F3224F42CD40073A427 /* DefinitionsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionsCoordinator.swift; sourceTree = "<group>"; };
 		CEFE0F3424F42CE10073A427 /* DefinitionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionsViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +113,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CEB8BDAC24F58E4A003F160E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEECEAE624F5B4C9003080BE /* Swifter in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -105,6 +129,7 @@
 			children = (
 				CE940D6C24F2AF640040BE2A /* UrbanDictionary */,
 				CE940D8324F2AF650040BE2A /* UrbanDictionaryTests */,
+				CEB8BDB024F58E4A003F160E /* UrbanDictionaryUITests */,
 				CE940D6B24F2AF640040BE2A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -114,6 +139,7 @@
 			children = (
 				CE940D6A24F2AF640040BE2A /* UrbanDictionary.app */,
 				CE940D8024F2AF650040BE2A /* UrbanDictionaryTests.xctest */,
+				CEB8BDAF24F58E4A003F160E /* UrbanDictionaryUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -180,6 +206,7 @@
 				CEFE0F3924F42E1D0073A427 /* Collection+safe.swift */,
 				CE940DB024F2EA9B0040BE2A /* ReactiveURLSession+decodable.swift */,
 				CE940DAC24F2C5350040BE2A /* UIView+LayoutConstraints.swift */,
+				CEF8D8D524F687EF00A34F94 /* UrbanDictionaryHelper.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -224,6 +251,16 @@
 				CEB8BD9B24F575A8003F160E /* SearchViewModelTests.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		CEB8BDB024F58E4A003F160E /* UrbanDictionaryUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CEF8D8D324F6603200A34F94 /* EchoServer.swift */,
+				CEB8BDB124F58E4A003F160E /* UrbanDictionaryUITests.swift */,
+				CEB8BDB324F58E4A003F160E /* Info.plist */,
+			);
+			path = UrbanDictionaryUITests;
 			sourceTree = "<group>";
 		};
 		CEFE0F2F24F42C9F0073A427 /* Definitions */ = {
@@ -298,6 +335,27 @@
 			productReference = CE940D8024F2AF650040BE2A /* UrbanDictionaryTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		CEB8BDAE24F58E4A003F160E /* UrbanDictionaryUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEB8BDB824F58E4A003F160E /* Build configuration list for PBXNativeTarget "UrbanDictionaryUITests" */;
+			buildPhases = (
+				CEB8BDAB24F58E4A003F160E /* Sources */,
+				CEB8BDAC24F58E4A003F160E /* Frameworks */,
+				CEB8BDAD24F58E4A003F160E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CEB8BDB524F58E4A003F160E /* PBXTargetDependency */,
+			);
+			name = UrbanDictionaryUITests;
+			packageProductDependencies = (
+				CEECEAE524F5B4C9003080BE /* Swifter */,
+			);
+			productName = UrbanDictionaryUITests;
+			productReference = CEB8BDAF24F58E4A003F160E /* UrbanDictionaryUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -315,6 +373,10 @@
 						CreatedOnToolsVersion = 11.6;
 						TestTargetID = CE940D6924F2AF640040BE2A;
 					};
+					CEB8BDAE24F58E4A003F160E = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = CE940D6924F2AF640040BE2A;
+					};
 				};
 			};
 			buildConfigurationList = CE940D6524F2AF630040BE2A /* Build configuration list for PBXProject "UrbanDictionary" */;
@@ -328,6 +390,7 @@
 			mainGroup = CE940D6124F2AF630040BE2A;
 			packageReferences = (
 				CE940DA724F2BD870040BE2A /* XCRemoteSwiftPackageReference "RxSwift" */,
+				CEECEAE424F5B4C9003080BE /* XCRemoteSwiftPackageReference "swifter" */,
 			);
 			productRefGroup = CE940D6B24F2AF640040BE2A /* Products */;
 			projectDirPath = "";
@@ -335,6 +398,7 @@
 			targets = (
 				CE940D6924F2AF640040BE2A /* UrbanDictionary */,
 				CE940D7F24F2AF640040BE2A /* UrbanDictionaryTests */,
+				CEB8BDAE24F58E4A003F160E /* UrbanDictionaryUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -351,6 +415,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		CE940D7E24F2AF640040BE2A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEB8BDAD24F58E4A003F160E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -374,6 +445,7 @@
 				CEFE0F3A24F42E1D0073A427 /* Collection+safe.swift in Sources */,
 				CE940D7024F2AF640040BE2A /* SceneDelegate.swift in Sources */,
 				CEFE0F4024F439580073A427 /* DefinitionViewModel.swift in Sources */,
+				CEF8D8D624F687EF00A34F94 /* UrbanDictionaryHelper.swift in Sources */,
 				CE940DB124F2EA9B0040BE2A /* ReactiveURLSession+decodable.swift in Sources */,
 				CE940D9224F2B13C0040BE2A /* SearchViewController.swift in Sources */,
 				CE940DAD24F2C5350040BE2A /* UIView+LayoutConstraints.swift in Sources */,
@@ -397,6 +469,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CEB8BDAB24F58E4A003F160E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEB8BDB224F58E4A003F160E /* UrbanDictionaryUITests.swift in Sources */,
+				CEF8D8D424F6603200A34F94 /* EchoServer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -404,6 +485,11 @@
 			isa = PBXTargetDependency;
 			target = CE940D6924F2AF640040BE2A /* UrbanDictionary */;
 			targetProxy = CE940D8124F2AF650040BE2A /* PBXContainerItemProxy */;
+		};
+		CEB8BDB524F58E4A003F160E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE940D6924F2AF640040BE2A /* UrbanDictionary */;
+			targetProxy = CEB8BDB424F58E4A003F160E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -619,6 +705,44 @@
 			};
 			name = Release;
 		};
+		CEB8BDB624F58E4A003F160E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SP87V98H97;
+				INFOPLIST_FILE = UrbanDictionaryUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bramschulting.UrbanDictionaryUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = UrbanDictionary;
+			};
+			name = Debug;
+		};
+		CEB8BDB724F58E4A003F160E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SP87V98H97;
+				INFOPLIST_FILE = UrbanDictionaryUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bramschulting.UrbanDictionaryUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = UrbanDictionary;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -649,6 +773,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		CEB8BDB824F58E4A003F160E /* Build configuration list for PBXNativeTarget "UrbanDictionaryUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEB8BDB624F58E4A003F160E /* Debug */,
+				CEB8BDB724F58E4A003F160E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -658,6 +791,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.1.1;
+			};
+		};
+		CEECEAE424F5B4C9003080BE /* XCRemoteSwiftPackageReference "swifter" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/httpswift/swifter";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.7;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -672,6 +813,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CE940DA724F2BD870040BE2A /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxCocoa;
+		};
+		CEECEAE524F5B4C9003080BE /* Swifter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEECEAE424F5B4C9003080BE /* XCRemoteSwiftPackageReference "swifter" */;
+			productName = Swifter;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
