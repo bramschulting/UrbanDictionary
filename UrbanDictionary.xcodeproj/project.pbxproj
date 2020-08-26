@@ -13,7 +13,6 @@
 		CE940D7424F2AF640040BE2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE940D7324F2AF640040BE2A /* Assets.xcassets */; };
 		CE940D7724F2AF640040BE2A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE940D7624F2AF640040BE2A /* Preview Assets.xcassets */; };
 		CE940D7A24F2AF640040BE2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE940D7824F2AF640040BE2A /* LaunchScreen.storyboard */; };
-		CE940D8524F2AF650040BE2A /* UrbanDictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE940D8424F2AF650040BE2A /* UrbanDictionaryTests.swift */; };
 		CE940D9224F2B13C0040BE2A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE940D9124F2B13C0040BE2A /* SearchViewController.swift */; };
 		CE940D9724F2B3580040BE2A /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE940D9624F2B3580040BE2A /* Coordinator.swift */; };
 		CE940D9924F2B3690040BE2A /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE940D9824F2B3690040BE2A /* Builder.swift */; };
@@ -68,7 +67,6 @@
 		CE940D7924F2AF640040BE2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE940D7B24F2AF640040BE2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE940D8024F2AF650040BE2A /* UrbanDictionaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UrbanDictionaryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE940D8424F2AF650040BE2A /* UrbanDictionaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrbanDictionaryTests.swift; sourceTree = "<group>"; };
 		CE940D8624F2AF650040BE2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE940D9124F2B13C0040BE2A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		CE940D9624F2B3580040BE2A /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -171,7 +169,6 @@
 			isa = PBXGroup;
 			children = (
 				CEB8BD9424F56228003F160E /* Domains */,
-				CE940D8424F2AF650040BE2A /* UrbanDictionaryTests.swift */,
 				CE940D8624F2AF650040BE2A /* Info.plist */,
 			);
 			path = UrbanDictionaryTests;
@@ -462,7 +459,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE940D8524F2AF650040BE2A /* UrbanDictionaryTests.swift in Sources */,
 				CEB8BD9724F5625E003F160E /* DefinitionViewModelTests.swift in Sources */,
 				CEB8BD9C24F575A8003F160E /* SearchViewModelTests.swift in Sources */,
 				CEB8BD9924F56F60003F160E /* DefinitionsViewModelTests.swift in Sources */,
