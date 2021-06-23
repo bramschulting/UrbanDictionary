@@ -104,11 +104,11 @@ class DefinitionCell: UITableViewCell {
     }()
 
     private func configureSubviews() {
-        addSubview(stackView)
+        contentView.addSubview(stackView)
     }
 
     private func configureLayout() {
-        NSLayoutConstraint.activate(stackView.layoutConstraints(toFill: self, insetBy: Constant.cellInsets))
+        NSLayoutConstraint.activate(stackView.layoutConstraints(toFill: contentView, insetBy: Constant.cellInsets))
     }
 
 }
